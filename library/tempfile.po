@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-21 09:48+0100\n"
-"PO-Revision-Date: 2019-01-11 17:38+0100\n"
+"PO-Revision-Date: 2019-01-11 20:37+0100\n"
 "Language-Team: FRENCH <traductions@lists.afpy.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: ../Doc/library/tempfile.rst:104
 msgid "the truncate method now accepts a ``size`` argument."
-msgstr "La méthode de troncature accepte maintenant un argument ``size``."
+msgstr "la méthode de troncature accepte maintenant un argument ``size``."
 
 #: ../Doc/library/tempfile.rst:110
 msgid ""
@@ -405,17 +405,20 @@ msgstr ""
 
 #: ../Doc/library/tempfile.rst:229
 msgid "Same as :func:`gettempdir` but the return value is in bytes."
-msgstr ""
+msgstr "Idem que :func:`gettempdir` mais la valeur retournée est en *bytes*."
 
 #: ../Doc/library/tempfile.rst:235
 msgid ""
 "Return the filename prefix used to create temporary files.  This does not "
 "contain the directory component."
 msgstr ""
+"Retourne le préfixe utilisé du nom de fichier pour créer les fichiers "
+"temporaires. Cela ne contient pas le nom du répertoire."
 
 #: ../Doc/library/tempfile.rst:240
 msgid "Same as :func:`gettempprefix` but the return value is in bytes."
 msgstr ""
+"Idem que :func:`gettempprefix` mais la valeur retournée est en *bytes*."
 
 #: ../Doc/library/tempfile.rst:244
 msgid ""
@@ -425,12 +428,21 @@ msgid ""
 "this module take a *dir* argument which can be used to specify the directory "
 "and this is the recommended approach."
 msgstr ""
+"Le module utilise une variable globale pour stocker le nom du répertoire "
+"utilisé pour les fichiers temporaires renvoyés par :func:`gettempdir`. On "
+"peut directement utiliser la variable globale pour surcharger le processus "
+"de sélection, mais ceci est déconseillé. Toutes les fonctions de ce module "
+"prennent un argument *dir qui peut être utilisé pour spécifier le "
+"répertoire. Il s'agit de la méthode recommandé."
 
 #: ../Doc/library/tempfile.rst:252
 msgid ""
 "When set to a value other than ``None``, this variable defines the default "
 "value for the *dir* argument to the functions defined in this module."
 msgstr ""
+"Quand une valeur autre que ``None`` est spécifiée, cette variable définit la "
+"valeur par défaut pour l'argument *dir* des fonctions définies dans ce "
+"module."
 
 #: ../Doc/library/tempfile.rst:256
 msgid ""
@@ -438,6 +450,9 @@ msgid ""
 "functions except :func:`gettempprefix` it is initialized following the "
 "algorithm described in :func:`gettempdir`."
 msgstr ""
+"Si ``tempdir`` vaut ``None`` (par défaut) pour n'importe quelle des "
+"fonctions ci-dessus, sauf :func:`gettempprefix`, la variable est initialisée "
+"suivant l'algorithme décrit dans :func:`gettempdir`."
 
 #: ../Doc/library/tempfile.rst:263
 msgid "Examples"
@@ -446,10 +461,12 @@ msgstr "Exemples"
 #: ../Doc/library/tempfile.rst:265
 msgid "Here are some examples of typical usage of the :mod:`tempfile` module::"
 msgstr ""
+"Voici quelques exemples classiques d'utilisation du module :mod:`tempfile` "
+"module::"
 
 #: ../Doc/library/tempfile.rst:296
 msgid "Deprecated functions and variables"
-msgstr ""
+msgstr "Fonctions et variables dépréciées"
 
 #: ../Doc/library/tempfile.rst:298
 msgid ""
@@ -461,10 +478,18 @@ msgid ""
 "to combine the two steps and create the file immediately. This approach is "
 "used by :func:`mkstemp` and the other functions described above."
 msgstr ""
+"Historiquement, la méthode pour créer des fichiers temporaires consistait à "
+"générer un nom de fichier avec la fonction :func:`mktemp` et créer un "
+"fichier en utilisant ce nom. Malheureusement, cette méthode n'est pas fiable "
+"car un autre processus peut créer un fichier avec ce nom entre l'appel à la "
+"fonction :func:`mktemp` et la tentative de création de fichier par le "
+"premier processus en cours. La solution est de combiner les deux étapes et "
+"de créer le fichier immédiatement. Cette approche est utilisée par :func:"
+"`mkstemp` et les autres fonctions décrites plus haut."
 
 #: ../Doc/library/tempfile.rst:309
 msgid "Use :func:`mkstemp` instead."
-msgstr ""
+msgstr "Utilisez :func:`mkstemp` à la place."
 
 #: ../Doc/library/tempfile.rst:312
 msgid ""
@@ -473,6 +498,10 @@ msgid ""
 "those of :func:`mkstemp`, except that bytes file names, ``suffix=None`` and "
 "``prefix=None`` are not supported."
 msgstr ""
+"Retourne le chemin absolu d'un fichier qui n'existe pas lorsque l'appel est "
+"fait. Les arguments *prefix*, *suffix*, et *dir* sont similaires à ceux de :"
+"func:`mkstemp` mais les noms de fichiers en _bytes_, ``sufix=None`` et "
+"``prefix=None`` ne sont pas supportés."
 
 #: ../Doc/library/tempfile.rst:319
 msgid ""
@@ -482,3 +511,8 @@ msgid ""
 "easily with :func:`NamedTemporaryFile`, passing it the ``delete=False`` "
 "parameter::"
 msgstr ""
+"Utiliser cette fonction peut introduire un trou de sécurité dans votre "
+"programme. Le temps que vous fassiez quelque chose avec le nom de fichier "
+"retourné, quelqu'un d'autre peut vous avoir botté les fesses avant. "
+"L'utilisation de :func:`mktemp` peut être remplacé facilement avec :func:"
+"`NamedTemporaryFile` en y passant le paramètre ``delete=False``::"
